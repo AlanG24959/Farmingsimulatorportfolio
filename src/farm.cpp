@@ -1,24 +1,35 @@
-#include <string>
+#include "farm.hpp"
+#include <iostream>
 
-#include "ansi_clear.hpp"
-
-std::string hello() {
-   return "Hello World!";
+Farm::Farm(int w, int h) : width(w), height(h), day(1) {
+  grid.resize(height, std::vector<Plant>(width, Plant()));
 }
 
-void spaces_and_dot(int number_of_spaces, std::string symbol) {
-  ansi_clear();
-  std::string input;
-  for(int i = 0; i < number_of_spaces; i++) {
-    std::cout << " ";
+void Farm::display() {
+  std::cout << "Day " << day << "\n";
+  for(int y=0; y<height; y++) {
+    for(int x=0; x<width; x++) {
+      std::cout << grid[y][x].getSymbol() << ' ';
+    }
+    std::cout << "\n";
   }
-  std::cout << symbol << std::endl;
-  std::cout << "Press Enter" << std::endl;
-  std::getline(std::cin, input);
 }
 
-void zoom(std::string symbol) {
-  for(int i = 40; i > 0; i--) {
-    spaces_and_dot(i, symbol);
-  }
+void Farm::endDay() {
+  day++;
+  for(int y=0; y<height; y++)
+    for(int x=0; x<width; x++)
+      grid[y][x].grow();
+}
+
+bool Farm::plantAt(int x, int y, const std::string& name) {
+  if(!grid[y][x].isEmpty()) return false;
+  grid[y][x].plantSeed(name);
+  return true;
+}
+
+bool Farm::harvestAt(int x, int y) {
+  if(!grid[y][x].isMature()) return false;
+  grid[y][x].harvest();
+  return true;
 }
