@@ -15,7 +15,6 @@ public:
     bool isEmpty() const;
     bool isMature() const;
     std::string getSymbol() const;
-
     void plantSeed(const std::string& plantName);
     void grow();
     void harvest();

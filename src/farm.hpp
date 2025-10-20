@@ -1,21 +1,25 @@
 #pragma once
 #include <vector>
-#include <string>
 #include "plant.h"
+#include "player.h"
 
 class Farm {
-    int width, height;
+private:
+    int width;
+    int height;
     int day;
+    Player player;
     std::vector<std::vector<Plant>> grid;
+    bool running;
 
 public:
-    Farm(int w, int h);
-    void display();
+    Farm(int w = 5, int h = 5);
+
+    void displayLegend() const;
+    void displayFarm() const;
+    void movePlayer(char direction);
+    void plantSeed();
+    void harvest();
     void endDay();
-    bool plantAt(int x, int y, const std::string& name);
-    bool harvestAt(int x, int y);
-    int getDay() const { return day; }
-    int getWidth() const { return width; }
-    int getHeight() const { return height; }
-    Plant& getPlant(int x, int y) { return grid[y][x]; }
+    bool isRunning() const;
 };

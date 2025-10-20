@@ -1,4 +1,4 @@
-#include "Plant.h"
+#include "plant.h"
 
 Plant::Plant() : name(""), state(PlantState::Empty), daysOld(0) {}
 
