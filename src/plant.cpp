@@ -8,8 +8,8 @@ bool Plant::isMature() const { return state == PlantState::Mature; }
 std::string Plant::getSymbol() const {
     switch (state) {
         case PlantState::Empty: return ".";
-        case PlantState::Seedling: return "*";
-        case PlantState::Mature: return "#";
+        case PlantState::Seedling: return "v";
+        case PlantState::Mature: return "V";
     }
     return "?";
 }

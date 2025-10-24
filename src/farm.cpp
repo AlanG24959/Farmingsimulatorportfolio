@@ -7,7 +7,7 @@ Farm::Farm(int w, int h) : width(w), height(h), day(1), player(0, 0), running(tr
 }
 
 void Farm::displayLegend() const {
-    std::cout << "Controls: W/A/S/D - Move, P - Plant, H - Harvest, E - End Day, X - Exit\n";
+    std::cout << "Controls: W/A/S/D - Move, P - Plant Carrot, H - Harvest, E - End Day, X - Exit\n";
 }
 
 void Farm::displayFarm() const {

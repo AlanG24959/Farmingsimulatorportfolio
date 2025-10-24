@@ -3,11 +3,12 @@
 
 int main() {
     Farm farm(5,5);
-    farm.displayLegend();
 
     bool running = true;
     while (running && farm.isRunning()) {
+        farm.displayLegend();
         farm.displayFarm();
+
         std::cout << "Enter command: ";
         char choice;
         std::cin >> choice;
