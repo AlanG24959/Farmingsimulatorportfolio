@@ -14,7 +14,7 @@ void Farm::displayFarm() const {
     std::cout << "\nDay " << day << "\n";
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
-            if (player.x == x && player.y == y) std::cout << "P ";
+            if (player.x == x && player.y == y) std::cout << "$ ";
             else std::cout << grid[y][x].getSymbol() << " ";
         }
         std::cout << "\n";
