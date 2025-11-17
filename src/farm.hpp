@@ -18,8 +18,9 @@ public:
     void displayLegend() const;
     void displayFarm() const;
     void movePlayer(char direction);
-    void plantSeed();
+    void plantSeed(const std::string& vegName);
     void harvest();
+    void waterPlant();
     void endDay();
     bool isRunning() const;
 };

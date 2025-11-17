@@ -7,7 +7,9 @@ Farm::Farm(int w, int h) : width(w), height(h), day(1), player(0, 0), running(tr
 }
 
 void Farm::displayLegend() const {
-    std::cout << "Controls: W/A/S/D - Move, P - Plant Carrot, H - Harvest, E - End Day, X - Exit\n";
+    std::cout << "Controls: W/A/S/D - Move, C - Plant Carrot, L - Plant Lettuce, "
+                 "P - Plant spinach, B - Plant Beet, R - Plant Brussels, O - Water, "
+                 "H - Harvest, E - End Day, X - Exit\n";
 }
 
 void Farm::displayFarm() const {
@@ -39,14 +41,19 @@ void Farm::movePlayer(char direction) {
     }
 }
 
-void Farm::plantSeed() {
+void Farm::plantSeed(const std::string& vegName) {
     Plant& p = grid[player.y][player.x];
-    if (p.isEmpty()) p.plantSeed("Carrot");
+    if (p.isEmpty()) p.plantSeed(vegName);
 }
 
 void Farm::harvest() {
     Plant& p = grid[player.y][player.x];
     if (p.isMature()) p.harvest();
+}
+
+void Farm::waterPlant() {
+    Plant& p = grid[player.y][player.x];
+    p.water();
 }
 
 void Farm::endDay() {

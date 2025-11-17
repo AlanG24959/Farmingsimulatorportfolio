@@ -1,13 +1,15 @@
 #pragma once
 #include <string>
 
-enum class PlantState { Empty, Seedling, Mature };
-
 class Plant {
 private:
     std::string name;
-    PlantState state;
-    int daysOld;
+    bool empty;
+    bool mature;
+    int age;
+    int sproutAge;
+    int maturityAge;
+    bool watered;
 
 public:
     Plant();
@@ -15,7 +17,9 @@ public:
     bool isEmpty() const;
     bool isMature() const;
     std::string getSymbol() const;
-    void plantSeed(const std::string& plantName);
+
+    void plantSeed(const std::string& vegName);
     void grow();
     void harvest();
+    void water();
 };

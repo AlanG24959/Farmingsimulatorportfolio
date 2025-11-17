@@ -1,6 +1,9 @@
 #pragma once
 
-struct Player {
-    int x, y;
+class Player {
+public:
+    int x;
+    int y;
+
     Player(int startX = 0, int startY = 0);
 };

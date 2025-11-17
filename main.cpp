@@ -1,37 +1,29 @@
-#include "src/farm.hpp"
 #include <iostream>
+#include "src/farm.hpp"
 
 int main() {
-    Farm farm(5,5);
+    Farm farm(5, 5);
+    char input;
 
-    bool running = true;
-    while (running && farm.isRunning()) {
+    while (farm.isRunning()) {
         farm.displayLegend();
         farm.displayFarm();
+        std::cin >> input;
 
-        std::cout << "Enter command: ";
-        char choice;
-        std::cin >> choice;
-
-        switch(toupper(choice)) {
+        switch (toupper(input)) {
             case 'W': case 'A': case 'S': case 'D':
-                farm.movePlayer(choice);
+                farm.movePlayer(input);
                 break;
-            case 'P':
-                farm.plantSeed();
-                break;
-            case 'H':
-                farm.harvest();
-                break;
-            case 'E':
-                farm.endDay();
-                break;
-            case 'X':
-                running = false;
-                break;
+            case 'C': farm.plantSeed("Carrot"); break;
+            case 'L': farm.plantSeed("Lettuce"); break;
+            case 'P': farm.plantSeed("Spinach"); break;
+            case 'B': farm.plantSeed("Beet"); break;
+            case 'R': farm.plantSeed("Brussels"); break;
+            case 'O': farm.waterPlant(); break;
+            case 'H': farm.harvest(); break;
+            case 'E': farm.endDay(); break;
+            case 'X': return 0;
         }
     }
-
-    std::cout << "Goodbye!\n";
     return 0;
 }
