@@ -6,9 +6,22 @@ bool Plant::isEmpty() const { return empty; }
 bool Plant::isMature() const { return mature; }
 
 std::string Plant::getSymbol() const {
-    if (empty) return ".";
-    if (!mature && age >= sproutAge) return "v";
-    if (mature) return "V";
+    if (empty) return ".";          
+    if (age < sproutAge) return "*";
+    if (!mature) {
+        if (name == "Carrot") return "v";
+        else if (name == "Lettuce") return "l";
+        else if (name == "Spinach") return "p";
+        else if (name == "Beet") return "b";
+        else if (name == "Brussels") return "r";
+    } else { // Mature
+        if (name == "Carrot") return "V";
+        else if (name == "Lettuce") return "L";
+        else if (name == "Spinach") return "P";
+        else if (name == "Beet") return "B";
+        else if (name == "Brussels") return "R";
+    }
+
     return "*";
 }
 

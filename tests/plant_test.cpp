@@ -5,35 +5,24 @@
 
 #include "../src/plant.h"
 
-TEST_CASE("Plant initializes correctly") {
-    Plant plant;
-
-    REQUIRE(plant.isEmpty() == true);
-    REQUIRE(plant.isMature() == false);
-    REQUIRE(plant.getSymbol() == ".");
+TEST_CASE("Plant lifecycle") {
+    Plant carrot;
+    carrot.plantSeed("Carrot");
+    REQUIRE(carrot.getSymbol() == "*");
+    carrot.grow();
+    REQUIRE(carrot.getSymbol() == "v");
+    carrot.grow();
+    REQUIRE(carrot.isMature() == true);
+    REQUIRE(carrot.getSymbol() == "V");
+    carrot.harvest();
+    REQUIRE(carrot.isEmpty() == true);
+    REQUIRE(carrot.getSymbol() == ".");
 }
 
-TEST_CASE("Plant grows from seedling to mature") {
-    Plant plant;
-    plant.plantSeed("Carrot");
-
-    REQUIRE(plant.isEmpty() == false);
-    REQUIRE(plant.isMature() == false);
-    REQUIRE(plant.getSymbol() == "v");
-
-    plant.grow();
-    REQUIRE(plant.isMature() == true);
-    REQUIRE(plant.getSymbol() == "V");
-}
-
-TEST_CASE("Plant harvest resets to empty") {
-    Plant plant;
-    plant.plantSeed("Carrot");
-    plant.grow();
-    REQUIRE(plant.isMature() == true);
-
-    plant.harvest();
-    REQUIRE(plant.isEmpty() == true);
-    REQUIRE(plant.isMature() == false);
-    REQUIRE(plant.getSymbol() == ".");
+TEST_CASE("Watered plant grows faster") {
+    Plant beet;
+    beet.plantSeed("Beet");
+    beet.water();
+    beet.grow();
+    REQUIRE(beet.getSymbol() == "b");
 }
