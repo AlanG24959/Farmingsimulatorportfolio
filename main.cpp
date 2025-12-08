@@ -2,7 +2,7 @@
 #include "src/farm.hpp"
 
 int main() {
-    Farm farm(5, 5);
+    Farm farm(10, 6);
     char input;
 
     while (farm.isRunning()) {
@@ -17,13 +17,14 @@ int main() {
             case 'C': farm.plantSeed("Carrot"); break;
             case 'L': farm.plantSeed("Lettuce"); break;
             case 'P': farm.plantSeed("Spinach"); break;
-            case 'B': farm.plantSeed("Beet"); break;
-            case 'R': farm.plantSeed("Brussels"); break;
+            case 'Q': farm.plantSeed("Beet"); break;
+            case 'B': farm.plantSeed("Brussels"); break;
             case 'O': farm.waterPlant(); break;
             case 'H': farm.harvest(); break;
             case 'E': farm.endDay(); break;
             case 'X': return 0;
         }
     }
+
     return 0;
 }

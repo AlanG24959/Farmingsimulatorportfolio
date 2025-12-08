@@ -2,6 +2,7 @@
 #include <vector>
 #include "plant.h"
 #include "player.h"
+#include "bunny.h"
 
 class Farm {
 private:
@@ -10,10 +11,11 @@ private:
     int day;
     Player player;
     std::vector<std::vector<Plant>> grid;
+    std::vector<Bunny> bunnies;
     bool running;
 
 public:
-    Farm(int w = 5, int h = 5);
+    Farm(int w = 10, int h = 6);
 
     void displayLegend() const;
     void displayFarm() const;
@@ -23,4 +25,7 @@ public:
     void waterPlant();
     void endDay();
     bool isRunning() const;
+
+    void spawnBunny();
+    void checkBunnyScare();
 };

@@ -15,15 +15,25 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
-add_executable(farm_test tests/farm_test.cpp src/farm.cpp src/plant.cpp src/player.cpp src/vegetables.cpp)
+add_executable(farm_test tests/farm_test.cpp src/farm.cpp src/plant.cpp src/player.cpp src/vegetables.cpp
+        src/bunny.cpp
+        src/bunny.h)
 
-add_executable(plant_test tests/plant_test.cpp src/plant.cpp src/player.cpp src/farm.cpp src/vegetables.cpp)
+add_executable(plant_test tests/plant_test.cpp src/plant.cpp src/player.cpp src/farm.cpp src/vegetables.cpp
+        src/bunny.cpp
+        src/bunny.h)
 
-add_executable(player_test tests/player_test.cpp src/player.cpp src/farm.cpp src/plant.cpp src/vegetables.cpp)
+add_executable(player_test tests/player_test.cpp src/player.cpp src/farm.cpp src/plant.cpp src/vegetables.cpp
+        src/bunny.cpp
+        src/bunny.h)
 
-add_executable(vegetables_test tests/vegetables_test.cpp src/player.cpp src/farm.cpp src/plant.cpp src/vegetables.cpp)
+add_executable(vegetables_test tests/vegetables_test.cpp src/player.cpp src/farm.cpp src/plant.cpp src/vegetables.cpp
+        src/bunny.cpp
+        src/bunny.h)
 
-add_executable(FarmGame main.cpp src/farm.cpp src/plant.cpp src/player.cpp src/vegetables.cpp)
+add_executable(FarmGame main.cpp src/farm.cpp src/plant.cpp src/player.cpp src/vegetables.cpp
+        src/bunny.cpp
+        src/bunny.h)
 
 target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(plant_test PRIVATE Catch2::Catch2WithMain)
