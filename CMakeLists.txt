@@ -25,8 +25,8 @@ add_executable(plant_test tests/plant_test.cpp src/plant.cpp src/player.cpp src/
 
 add_executable(player_test tests/player_test.cpp src/player.cpp src/farm.cpp src/plant.cpp src/vegetables.cpp
         src/bunny.cpp
-        src/bunny.h)
-
+        src/bunny.h
+)
 add_executable(vegetables_test tests/vegetables_test.cpp src/player.cpp src/farm.cpp src/plant.cpp src/vegetables.cpp
         src/bunny.cpp
         src/bunny.h)
@@ -35,7 +35,13 @@ add_executable(FarmGame main.cpp src/farm.cpp src/plant.cpp src/player.cpp src/v
         src/bunny.cpp
         src/bunny.h)
 
+add_executable(bunny_test tests/bunny_test.cpp src/farm.cpp src/plant.cpp src/player.cpp src/vegetables.cpp
+        src/bunny.cpp
+        src/bunny.h
+        tests/bunny_test.cpp)
+
 target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(plant_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(player_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(vegetables_test PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(bunny_test PRIVATE Catch2::Catch2WithMain)
